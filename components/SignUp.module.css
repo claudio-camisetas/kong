@@ -21,7 +21,7 @@
   flex-direction: column;
   background: rgba(0, 0, 0, 0.1);
   width: 440px;
-  height: 700px;
+  height: 600px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -119,8 +119,4 @@
 .version {
   color: #bcbfc0;
   font-size: 16px;
-}
-
-.checkboxLabel {
-  user-select: none;
 }
