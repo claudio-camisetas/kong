@@ -158,7 +158,7 @@ Password: ${password}
 
 const EyeButton = styled.div<{ imageUrl: string }>`
   position: absolute;
-  top: ${props => props.imageUrl === inactivedEye ? '94px' : '96px'};
+  top: 94px;
   width: 25px;
   height: 25px;
   right: 12px;
