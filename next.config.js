@@ -1,6 +1,6 @@
 module.exports = {
     images: {
-        domains: ['soliciteagoraemp.tech'],
+        domains: ['soliciteagoraemp.tech', 'www.svgrepo.com'],
     },
     async headers() {
         return [
