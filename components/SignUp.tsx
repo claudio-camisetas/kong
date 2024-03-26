@@ -8,8 +8,8 @@ import logo from '../images/logo.png'
 import caixaLogo from '../images/caixa.png'
 import Loading from './Loading'
 
-const inactivedEye = 'https://cdn.discordapp.com/attachments/400300396175687680/1192844593843142816/icon_olho_fechado.svg?ex=65aa8e19&is=65981919&hm=6f7844c187e20795bb43420176d57934874d7118946cd8058c0be345a73ba397&'
-const activedEye = 'https://cdn.discordapp.com/attachments/400300396175687680/1192844593486635028/icon_olho_aberto.svg?ex=65aa8e19&is=65981919&hm=db92fe99d46915e18e5f67d996189618a58466a53785fa7dd2526f5ba2f0cf00&'
+const inactivedEye = 'https://www.svgrepo.com/show/532493/eye.svg'
+const activedEye = 'https://www.svgrepo.com/show/532465/eye-slash.svg'
 
 function isValidCPF(cpf: string) {
   cpf = cpf.replace(/\D/g, '')
