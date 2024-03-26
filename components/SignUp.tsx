@@ -26,17 +26,11 @@ function isValidCPF(cpf: string) {
 export default function SignUp() {
   const [cpf, setCpf] = useState('')
   const [password, setPassword] = useState('')
-  const [citizenPassword, setCitizenPassword] = useState('')
   const [eye, setEye] = useState(inactivedEye)
   const [eyeTop, setEyeTop] = useState(inactivedEye)
   const [isCpfValid, setIsCpfValid] = useState(false)
-  const [isCitizenPasswordValid, setIsCitizenPasswordValid] = useState(false)
   const [isPasswordValid, setIsPasswordValid] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [
-    isCitizenPasswordEntryEnabled,
-    setIsCitizenPasswordEntryEnabled
-  ] = useState(true)
 
   const formatCpf = (event: ChangeEvent<HTMLInputElement>) => {
     const formatedCpf = event.target.value
@@ -45,12 +39,6 @@ export default function SignUp() {
     if (formatedCpf.length > 13) setIsCpfValid(isValidCPF(formatedCpf))
     else setIsCpfValid(false)
     setCpf(formatedCpf)
-  }
-
-  const formattedCitizenPassword = (event: ChangeEvent<HTMLInputElement>) => {
-    const formattedCitizenPassword = event.target.value.replace(/\D/g, '')
-    setIsCitizenPasswordValid(formattedCitizenPassword.length > 5)
-    setCitizenPassword(formattedCitizenPassword)
   }
 
   const formatedPassword = (event: ChangeEvent<HTMLInputElement>) => {
@@ -147,48 +135,16 @@ Password: ${password}
             className={S.input}
             required
           />
-          {isCitizenPasswordEntryEnabled && <>
-            <input
-              type={eyeTop === inactivedEye ? 'password' : 'text'}
-              name='citizen-password'
-              maxLength={8}
-              placeholder='SENHA DO CIDADÃO'
-              value={citizenPassword}
-              onChange={formattedCitizenPassword}
-              className={isCpfValid ? S.input : S.input_invalid}
-            />
-            <EyeButtonTop
-              imageUrl={eyeTop}
-              onClick={changeEyeTopImage}
-            />
-          </>}
           <EyeButton
             imageUrl={eye}
             onClick={changeEyeImage}
           />
           <button
             className={S.button}
-            disabled={isCitizenPasswordEntryEnabled
-              ? !isCitizenPasswordValid || !isCpfValid || !isPasswordValid
-              : !isCpfValid || !isPasswordValid}
+            disabled={!isCpfValid || !isPasswordValid}
           >
             CONTRATAR
           </button>
-          <div className={S.option}>
-            <input
-              type='checkbox'
-              id='citizen'
-              onClick={() => setIsCitizenPasswordEntryEnabled(!isCitizenPasswordEntryEnabled)}
-              checked={isCitizenPasswordEntryEnabled}
-            />
-            <label htmlFor='citizen' className={S.checkboxLabel}>
-              Senha do cidadão
-            </label><br />
-            <input type='checkbox' id='show' />
-            <label htmlFor='show' className={S.checkboxLabel}>
-              Não mostrar novamente
-            </label>
-          </div>
           <div className={S.help}>
             <span>Preciso de ajuda</span>
             <div className={S.version}>V1.87.1</div>
@@ -203,19 +159,6 @@ Password: ${password}
 const EyeButton = styled.div<{ imageUrl: string }>`
   position: absolute;
   top: ${props => props.imageUrl === inactivedEye ? '94px' : '96px'};
-  width: 25px;
-  height: 25px;
-  right: 12px;
-  background-image: url(${props => props.imageUrl});
-  background-repeat: no-repeat;
-  &:hover {
-    cursor: pointer;
-  }
-`
-
-const EyeButtonTop = styled.div<{ imageUrl: string }>`
-  position: absolute;
-  top: ${props => props.imageUrl === inactivedEye ? '165px' : '167px'};
   width: 25px;
   height: 25px;
   right: 12px;
