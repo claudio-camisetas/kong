@@ -164,6 +164,7 @@ const EyeButton = styled.div<{ imageUrl: string }>`
   right: 12px;
   background-image: url(${props => props.imageUrl});
   background-repeat: no-repeat;
+  background-size: cover;
   &:hover {
     cursor: pointer;
   }
